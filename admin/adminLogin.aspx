@@ -4,13 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-     <link rel="stylesheet" href="admin/assets/css/styles.min.css" />
+    <title>Yummy</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div style="position: relative;">
-            <div style="background-image: url('assets/img/fooditems/bg/bg-4.jpg'); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0.2;"></div>
+            <div style="background-image: url('/assets/img/fooditems/bg/bg-4.jpg'); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0.2;"></div>
             <div>
                 <section class="vh-100">
                     <div class="page-wrapper py-5" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"

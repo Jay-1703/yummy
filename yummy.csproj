@@ -449,6 +449,7 @@
     <Content Include="admin\assets\libs\simplebar\src\simplebar.css" />
     <Content Include="admin\assets\libs\simplebar\src\simplebar.js" />
     <Content Include="admin\dashboard.aspx" />
+    <Content Include="admin\Logout.aspx" />
     <Content Include="admin\orders.aspx" />
     <Content Include="admin\signin.aspx" />
     <Content Include="admin\signup.aspx" />
@@ -624,6 +625,13 @@
     </Compile>
     <Compile Include="admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\orders.aspx.cs">
       <DependentUpon>orders.aspx</DependentUpon>

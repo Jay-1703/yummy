@@ -15,6 +15,15 @@ namespace yummy.admin
     {
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// showCategorys control.
         /// </summary>
         /// <remarks>
@@ -24,6 +33,15 @@ namespace yummy.admin
         protected global::System.Web.UI.WebControls.Repeater showCategorys;
 
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
         /// showProducts control.
         /// </summary>
         /// <remarks>
@@ -31,5 +49,14 @@ namespace yummy.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater showProducts;
+
+        /// <summary>
+        /// restaurantData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater restaurantData;
     }
 }

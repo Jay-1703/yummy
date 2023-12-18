@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Modernize Free</title>
+    <title>Yummy</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
 </head>
@@ -22,7 +22,7 @@
                                     <h1 class="text-center">Yummy<span>.</span></h1>
                                     <div>
                                         <div class="mb-3">
-                                            <label for="exampleInputtext1" class="form-label">User Name</label>
+                                            <label for="exampleInputtext1" class="form-label">Usename</label>
                                             <asp:TextBox ID="userName" runat="server" class="form-control" type="text" aria-describedby="textHelp"></asp:TextBox>
                                         </div>
 

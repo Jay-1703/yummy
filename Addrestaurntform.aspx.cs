@@ -26,7 +26,7 @@ namespace yummy
             SqlCommand cmd = new SqlCommand(sql, connection);
             cmd.ExecuteNonQuery();
 
-            string sql2 = "SELECT rolename FROM roles WHERE id = " + 3 + "";
+            string sql2 = "SELECT rolename FROM roles WHERE id = " + 6 + "";
             SqlDataAdapter data = new SqlDataAdapter(sql2, connection);
             DataTable dataTable = new DataTable();
             data.Fill(dataTable);

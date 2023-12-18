@@ -8,10 +8,14 @@ namespace yummy.admin
         {
             if ((string)Session["role"] == "restaurant")
             {
-                Name.Text = (string)Session["restaurantName"];                
+                Name.Text = (string)Session["restaurantName"];
+                username.Text = (string)Session["restaurantName"];
             }
             else if((string)Session["role"] == "admin")
             {
+                Name.Text = (string)Session["admin"];
+                username.Text = (string)Session["admin"];
+                addProducts.Visible = false;
                 addItems.Visible = false;
                 showOrder.Visible = false;
             }
@@ -21,7 +25,7 @@ namespace yummy.admin
             }
             else if ((string)Session["role"] == "admin")
             {
-                Response.Redirect("signin.aspx");
+                Response.Redirect("adminLogin.aspx");
             }
         }
     }

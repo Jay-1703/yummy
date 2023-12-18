@@ -111,7 +111,6 @@ D:\ASP.NET\yummy\yummy\yummy\bin\roslyn\VBCSCompiler.exe
 D:\ASP.NET\yummy\yummy\yummy\bin\roslyn\VBCSCompiler.exe.config
 D:\ASP.NET\yummy\yummy\yummy\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\ASP.NET\yummy\yummy\yummy\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\ASP.NET\yummy\yummy\yummy\obj\Debug\yummy.csprojAssemblyReference.cache
 D:\ASP.NET\yummy\yummy\yummy\obj\Debug\yummy.csproj.CoreCompileInputs.cache
 D:\ASP.NET\yummy\yummy\yummy\obj\Debug\yummy.csproj.CopyComplete
 D:\ASP.NET\yummy\yummy\yummy\obj\Debug\yummy.dll
@@ -175,3 +174,4 @@ C:\xampp\htdocs\ASP\yummy\yummy\yummy\yummy\obj\Debug\yummy.csproj.CoreCompileIn
 C:\xampp\htdocs\ASP\yummy\yummy\yummy\yummy\obj\Debug\yummy.csproj.CopyComplete
 C:\xampp\htdocs\ASP\yummy\yummy\yummy\yummy\obj\Debug\yummy.dll
 C:\xampp\htdocs\ASP\yummy\yummy\yummy\yummy\obj\Debug\yummy.pdb
+D:\asp.net\yummy\yummy\yummy\obj\Debug\yummy.csproj.AssemblyReference.cache

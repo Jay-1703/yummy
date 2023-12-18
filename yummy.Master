@@ -66,24 +66,24 @@
                 </div>
             </div>
             <nav id="navbar" class="navbar">
-                <div class="d-flex align-items-center mt-3 gap-2">
-                    <a href="admin/signin.aspx" class="me-auto me-lg-0">
-                        <p>Signin</p>
-                    </a>
+                <div class="d-flex align-items-center gap-2">
+                    <% if (Session["user"] != null)
+                        { %>
+                    <asp:HyperLink ID="logout" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/Logout.aspx">Logout</asp:HyperLink>
+                    <% }
+                        else
+                        { %>
+                    <asp:HyperLink ID="signin" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/signin.aspx">Signin</asp:HyperLink>
 
-                    <a href="admin/signup.aspx" class="me-auto me-lg-0">
-                        <p>Signup</p>
-                    </a>
+                    <asp:HyperLink ID="signup" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/signup.aspx">Signup</asp:HyperLink>
 
-                    <a href="Addrestaurnt.aspx" class="me-auto me-lg-0">
-                        <p>Add restaurent</p>
-                    </a>
+                    <asp:HyperLink ID="addrestaurnt" class="me-auto me-lg-0" runat="server" NavigateUrl="Addrestaurnt.aspx">Add restaurnt</asp:HyperLink>
+                    <% } %>
                 </div>
             </nav>
             <!-- .navbar -->
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
         </div>
     </header>
     <!-- End Header -->

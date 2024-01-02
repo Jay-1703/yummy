@@ -12,8 +12,9 @@ namespace yummy.admin
         {
             if (! IsPostBack)
             {
-                int id = Convert.ToInt32(Session["id"]);
-                string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + id + "";
+                int restauranId = Convert.ToInt32(Session["restauranId"]);
+
+                string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId + "";
                 DataTable data = Sevices.select(sql, connection);
                 if (data.Rows.Count >= 0)
                 {

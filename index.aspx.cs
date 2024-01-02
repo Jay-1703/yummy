@@ -34,7 +34,7 @@ namespace yummy
                 {
                     DataRow row = data.Rows[0];
 
-                    Response.Write("<script>alert('"+ row["username"] + "')</script>");
+                    //Response.Write("<script>alert('"+ row["username"] + "')</script>");
                     //showCategorys.DataSource = dt;
                     //showCategorys.DataBind();
 

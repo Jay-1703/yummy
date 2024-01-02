@@ -48,7 +48,7 @@ namespace yummy
                                 Session["role"] = roleName;
                                 Session["restaurantName"] = (string)(row["username"]);
                                 Session["email"] = (string)row["email"];
-                                Session["id"] = (int)row["id"];
+                                Session["restauranId"] = (int)row["id"];
                                 Response.Redirect("admin/dashboard.aspx");
                             }
                         }

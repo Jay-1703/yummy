@@ -19,8 +19,9 @@ namespace yummy.admin
 
         protected void addFoodItem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(Session["id"]);
-            string sql = "INSERT INTO [categorys] (categoryname,restaurantId) values('" + categoryname.Text + "'," + id + ")";
+            int restauranId = Convert.ToInt32(Session["restauranId"]);
+
+            string sql = "INSERT INTO [categorys] (categoryname,restaurantId) values('" + categoryname.Text + "'," + restauranId + ")";
             int response = Sevices.execute(sql, connection);
             if (response != 0)
             {

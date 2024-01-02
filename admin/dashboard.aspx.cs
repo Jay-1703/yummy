@@ -18,10 +18,12 @@ namespace yummy.admin
         SqlConnection connection = new SqlConnection("Data Source=PATEL\\SQLEXPRESS;Initial Catalog=yummy;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 if ((string)Session["role"] == "restaurant")
                 {
+
                     Label1.Visible = true;
                     Label1.Text = "List of categotys";
                     Label2.Visible = true;
@@ -41,10 +43,11 @@ namespace yummy.admin
         }
         protected void display_categorysdata()
         {
-
+            int restauranId = Convert.ToInt32(Session["restauranId"]);
             try
             {
-                string sql = "SELECT * FROM [categorys]";
+                Response.Write("<script>alert('" + restauranId + "')</script>");
+                string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId + "";
                 DataTable dt = Sevices.select(sql, connection);
 
                 if (dt.Rows.Count > 0)
@@ -64,7 +67,13 @@ namespace yummy.admin
 
             try
             {
-                string sql2 = "SELECT products.id, products.productname, products.price, products.qty, products.categoryId, categorys.categoryname FROM [products] INNER JOIN [categorys] ON products.categoryId = categorys.id";
+                int restauranId = Convert.ToInt32(Session["restauranId"]);
+
+                string sql2 = "SELECT products.id, products.productname, products.price, products.qty, products.categoryId, categorys.categoryname " +
+              "FROM [products] " +
+              "INNER JOIN [categorys] ON products.categoryId = categorys.id " +
+              "WHERE categorys.restaurantId = " + restauranId;
+
                 DataTable dt2 = Sevices.select(sql2, connection);
 
                 if (dt2.Rows.Count > 0)
@@ -132,6 +141,27 @@ namespace yummy.admin
                     }
                 }
             }
+        }
+
+        protected void restaurantData_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteRestaurantRecord")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                string sql = "DELETE FROM [products] WHERE categoryId = " + id + "";
+                int response = Sevices.execute(sql, connection);
+
+                String sql2 = "DELETE FROM [categorys] WHERE restaurantId = " + id + "";
+                int response2 = Sevices.execute(sql2, connection);
+
+                String sql3 = "DELETE FROM [frenchies] WHERE id = " + id + "";
+                int response3 = Sevices.execute(sql3, connection);
+                if (response3 != 0)
+                {
+                    Response.Redirect("dashboard.aspx");
+                }
+            }
+
         }
     }
 }

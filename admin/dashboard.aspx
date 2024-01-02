@@ -122,7 +122,7 @@
       </table>             
             </FooterTemplate>
         </asp:Repeater>
-        <asp:Repeater ID="restaurantData" runat="server">
+        <asp:Repeater ID="restaurantData" runat="server" OnItemCommand="restaurantData_ItemCommand">
             <HeaderTemplate>
                 <table id="datatablesSimple" class="table text-nowrap mt-4 mb-5 align-middle shadow-sm border border-2">
                     <thead class="text-dark fs-4">
@@ -189,7 +189,7 @@
                         <asp:Button ID="Edit" runat="server" Text="Edit" CssClass="btn btn-primary" CommandName="GetRecord" CommandArgument='<%# Eval("id") %>' />
                     </td>
                     <td class="border-bottom-0">
-                        <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="btn btn-danger" CommandName="DeleteRecord" CommandArgument='<%# Eval("id") %>' />
+                        <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="btn btn-danger" CommandName="DeleteRestaurantRecord" CommandArgument='<%# Eval("id") %>' />
                     </td>
                 </tr>
             </ItemTemplate>

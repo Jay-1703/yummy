@@ -95,20 +95,17 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">My Profile</p>
-                                        </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                                            <i class="ti ti-mail fs-6"></i>
-                                            <p class="mb-0 fs-3">My Account</p>
-                                        </a>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                                            <i class="ti ti-list-check fs-6"></i>
-                                            <asp:Label class="mb-0 fs-3" ID="username" runat="server" Text="Label"></asp:Label>
+                                            <%--<button  type="button">My Profile</button>--%>
+                                            <button type="button" class="mb-0 fs-3 btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                My profile
+                                            </button>
+
+                                            <%--<asp:Button ID="ShowProfileModal" runat="server" Text="My Profile" CssClass="btn btn-primary"/>--%>
                                         </a>
                                         <a href="Logout.aspx" class="d-flex align-items-center justify-content-center dropdown-item">
-                                            <button class="btn btn-outline-primary mx-3 mt-2 w-100" >
+                                            <button class="btn btn-outline-primary mx-3 mt-2 w-100">
                                                 Logout
                                             </button>
                                         </a>
@@ -126,8 +123,61 @@
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="mb-4 col-6">
+                                                <label for="exampleInputEmail1" class="form-label">Restaurant name</label>
+                                                <input runat="server" type="text" class="form-control" id="restaurantname" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-4 col-6">
+                                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                                                <input runat="server" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-4 col-12">
+                                                <label for="exampleInputEmail1" class="form-label">Address</label>
+                                                <input runat="server" type="text" class="form-control" id="address" aria-describedby="emailHelp">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-4 col-6">
+                                                <label for="exampleInputEmail1" class="form-label">City</label>
+                                                <input runat="server" type="text" class="form-control" id="city" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-4 col-6">
+                                                <label for="exampleInputEmail1" class="form-label">State</label>
+                                                <input runat="server" type="text" class="form-control" id="state" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-4 col-12">
+                                                <label for="exampleInputEmail1" class="form-label">Website url</label>
+                                                <input runat="server" type="text" class="form-control" id="weburl" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-4 col-12">
+                                                <label for="exampleInputEmail1" class="form-label">Website url</label>
+                                                <input runat="server" type="text" class="form-control" id="Text1" aria-describedby="emailHelp">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <asp:Button OnClick="restaurantProfile_Click" Text="Save changes" type="button" ID="restaurantProfile" runat="server" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
+
+
+
         </div>
     </div>
 

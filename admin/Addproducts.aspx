@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="mb-4 col-6">
                                             <label for="exampleInputPassword1" class="form-label">Product image</label>
-                                            <asp:TextBox ID="productimage" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:FileUpload ID="FileUpload1" runat="server" class="form-control p-2" />
                                         </div>
                                     </div>
                                     <div class="row">

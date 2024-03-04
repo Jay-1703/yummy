@@ -41,7 +41,7 @@
                                                         </div>
                                                         <div class="mb-4 col-md-3">
                                                             <label for="exampleInputPassword1" class="form-label">Phone number</label>
-                                                            <asp:TextBox ID="phonenumber" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="phonenumber" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                     <div class="row">

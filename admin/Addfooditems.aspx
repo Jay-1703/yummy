@@ -8,17 +8,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
-        <div
-            class="overflow-hidden radial-gradient">
-            <div class="w-100">
-                <div class="w-100  px-5 py-3">
+        <div class="overflow-hidden my-9 radial-gradient">
+            <div class="w-100 my-9">
+                <div class="w-100 px-5 py-3">
                     <div class="col-12">
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="index.aspx" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
-                                <p class="text-center">Add Your category</p>
+                                <h3 class="text-center my-4">Add Your category</h3>
                                 <div>
                                     <div class="row">
                                         <div class="mb-3 col-6 offset-3">

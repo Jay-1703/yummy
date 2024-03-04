@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using yummy.Comman;
@@ -41,12 +35,12 @@ namespace yummy.admin
                 }
             }
         }
+
         protected void display_categorysdata()
         {
             int restauranId = Convert.ToInt32(Session["restauranId"]);
             try
-            {
-                Response.Write("<script>alert('" + restauranId + "')</script>");
+            {               
                 string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId + "";
                 DataTable dt = Sevices.select(sql, connection);
 
@@ -62,6 +56,7 @@ namespace yummy.admin
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
+
         protected void display_productsdata()
         {
 
@@ -69,7 +64,7 @@ namespace yummy.admin
             {
                 int restauranId = Convert.ToInt32(Session["restauranId"]);
 
-                string sql2 = "SELECT products.id, products.productname, products.price, products.qty, products.categoryId, categorys.categoryname " +
+                string sql2 = "SELECT products.id, products.productname, products.price, products.qty,products.image, products.categoryId, categorys.categoryname " +
               "FROM [products] " +
               "INNER JOIN [categorys] ON products.categoryId = categorys.id " +
               "WHERE categorys.restaurantId = " + restauranId;
@@ -88,6 +83,7 @@ namespace yummy.admin
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
+
         protected void display_restaurantsdata()
         {
 
@@ -121,6 +117,12 @@ namespace yummy.admin
                     Response.Redirect("dashboard.aspx");
                 }
             }
+            if (e.CommandName == "ShowEditProductsModal")
+            {             
+                string id = e.CommandArgument.ToString();
+                GetDataProductsById(id);            
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#updateProductsModal').modal('show');", true);
+            }
         }
 
         protected void showCategorys_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -140,6 +142,12 @@ namespace yummy.admin
                         Response.Redirect("dashboard.aspx");
                     }
                 }
+            }
+            if (e.CommandName == "showUpdateCategoryModel")
+            {
+                string id = e.CommandArgument.ToString();
+                GetDataCategoryById(id);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#updateCategoriesModal').modal('show');", true);
             }
         }
 
@@ -162,6 +170,73 @@ namespace yummy.admin
                 }
             }
 
+        }
+
+        private void GetDataProductsById(string Id)
+        {
+            int restauranId = Convert.ToInt32(Session["restauranId"]);
+
+            string sql2 = "SELECT * from products WHERE id = " + Id;
+            DataTable dt = Sevices.select(sql2, connection);
+            DataRow productRow = dt.Rows[0];
+            productname.Text = productRow["productname"].ToString();
+            productprice.Text = productRow["price"].ToString();
+            quantity.Text = productRow["qty"].ToString();
+            productid.Text = productRow["id"].ToString();
+            
+            string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId;
+            DataTable data = Sevices.select(sql, connection);
+            if(dt.Rows.Count > 0)
+            {
+                categoryList.DataSource = data;
+                categoryList.DataValueField = "id";
+                categoryList.DataTextField = "categoryname";
+                categoryList.DataBind();
+            }
+
+
+            if (categoryList.Items.FindByValue(productRow["categoryId"].ToString()) != null)
+            {
+                categoryList.Items.FindByValue(productRow["categoryId"].ToString()).Selected = true;
+            }
+        }
+
+        private void GetDataCategoryById(string Id)
+        {            
+            string sql = "SELECT * from categorys WHERE id = " + Id;
+            DataTable dt = Sevices.select(sql, connection);
+            DataRow categoryRow = dt.Rows[0];
+            categoryname.Text = categoryRow["categoryname"].ToString();            
+            categoryid.Text = categoryRow["id"].ToString();           
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(productid.Text);
+
+            string sql = "UPDATE products set categoryId = " + categoryList.SelectedValue + ", productname = '" + productname.Text + "',price = '" + productprice.Text + "', qty = '" + quantity.Text + "' WHERE id = " + id;
+            int affectedRows = Sevices.execute(sql, connection);
+            if (affectedRows > 0)
+            {
+                Response.Redirect("dashboard.aspx");
+                UpdatePanel1.Update();
+                showProducts.DataBind();
+            }
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(categoryid.Text);
+
+            string sql = "UPDATE categorys set categoryname = '" + categoryname.Text + "' WHERE id = " + id;
+            int affectedRows = Sevices.execute(sql, connection);
+            if (affectedRows > 0)
+            {
+                Response.Redirect("dashboard.aspx");
+                UpdatePanel2.Update();
+                showCategorys.DataBind();
+            }
         }
     }
 }

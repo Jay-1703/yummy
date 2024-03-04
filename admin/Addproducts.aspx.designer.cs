@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace yummy.admin {
-    
-    
-    public partial class Addproducts {
-        
+namespace yummy.admin
+{
+
+
+    public partial class Addproducts
+    {
+
         /// <summary>
         /// categoryList control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace yummy.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList categoryList;
-        
+
         /// <summary>
         /// productname control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace yummy.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox productname;
-        
+
         /// <summary>
         /// productprice control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace yummy.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox productprice;
-        
+
         /// <summary>
         /// quantity control.
         /// </summary>
@@ -47,16 +49,16 @@ namespace yummy.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox quantity;
-        
+
         /// <summary>
-        /// productimage control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox productimage;
-        
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
         /// <summary>
         /// addproduct control.
         /// </summary>

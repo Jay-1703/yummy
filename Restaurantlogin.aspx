@@ -37,7 +37,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="exampleInputEmail1" class="form-label">Password</label>
-                                                            <asp:TextBox ID="password" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:TextBox ID="password" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>

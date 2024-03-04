@@ -42,7 +42,7 @@
                 <h1>Yummy<span>.</span></h1>
             </a>
             <div>
-                <div>
+                <%--<div>
                     <div class="border border-1" style="width: 380px;">
                         <input type="text" class="form-control " placeholder="Search Tasks...">
                     </div>
@@ -63,22 +63,21 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </div>
             <nav id="navbar" class="navbar">
                 <div class="d-flex align-items-center gap-2">
-                    <% if (Session["user"] != null)
-                        { %>
+
+                    <button id="showOrders" data-bs-toggle="modal" data-bs-target="#showOrderModel" class="btn btn-danger">Show orders</button>
+
                     <asp:HyperLink ID="logout" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/Logout.aspx">Logout</asp:HyperLink>
-                    <% }
-                        else
-                        { %>
+
                     <asp:HyperLink ID="signin" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/signin.aspx">Signin</asp:HyperLink>
 
                     <asp:HyperLink ID="signup" class="me-auto me-lg-0" runat="server" NavigateUrl="admin/signup.aspx">Signup</asp:HyperLink>
 
                     <asp:HyperLink ID="addrestaurnt" class="me-auto me-lg-0" runat="server" NavigateUrl="Addrestaurnt.aspx">Add restaurnt</asp:HyperLink>
-                    <% } %>
+
                 </div>
             </nav>
             <!-- .navbar -->
@@ -114,34 +113,71 @@
     <!-- End Footer -->
 
     <!-- ======= Model ======= -->
-
-    <div class="modal" id="orderModel" tabindex="-1">
-        <div class="modal-dialog">
+    <div class="modal fade" id="showOrderModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Order</h5>
-                    <button type="button" id="orderModelClose" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row g-0">
-                        <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <%--<div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>--%>
-                        </div>
-                    </div>
+                    <table class="table text-nowrap mb-0">
+                        <thead class="text-dark fs-4">
+                            <tr>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Id</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Product name</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Address</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Quantity</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Price</h6>
+                                </th>
+                                <th class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">Total price</h6>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">1</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-1">pizza</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="mb-0 fw-semibold">khodiyar colony</h6>
+                                    <span class="fw-normal">Jamnagar</span>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="fw-normal">4</span>                                        
+                                    </div>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">3</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <h6 class="fw-semibold mb-0">12</h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="orderModelClose btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                    
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 <!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -153,28 +189,4 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
-
-<script>
-    //document.addEventListener("DOMContentLoaded", function () {
-    //    var orderModelOpen = document.getElementById("orderBtn");
-    //    var orderModelClose = document.getElementById("orderModelClose");
-
-    //    orderModelOpen.addEventListener("click", function () {
-    //        var myModal = new bootstrap.Modal(document.getElementById("orderModel"));
-    //        myModal.show();
-    //    });
-    //    orderModelClose.addEventListener("click", function () {
-    //        var myModal = new bootstrap.Modal(document.getElementById("orderModel"));
-    //        myModal.hide();
-    //    });
-    //});
-
-    $("#orderModel").hide();
-    $("#orderBtn").on("click", function () {
-        $("#orderModel").show();
-    });
-    $("#orderModelClose").on("click", function () {
-        $("#orderModel").hide();
-    });
-</script>
 </html>

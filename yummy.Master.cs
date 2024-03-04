@@ -13,14 +13,14 @@ namespace yummy
         {
             if (Session["user"] != null)
             {
-                logout.Visible = true;
+                logout.Visible = true;                
                 signin.Visible = false;
                 signup.Visible = false;
                 addrestaurnt.Visible = false;
             }
             else
             {
-                logout.Visible = false;
+                logout.Visible = false;                
                 signin.Visible = true; 
                 signup.Visible = true;  
                 addrestaurnt.Visible = true;

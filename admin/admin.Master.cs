@@ -45,20 +45,19 @@ namespace yummy.admin
             if (data.Rows.Count > 0)
             {
                 DataRow row = data.Rows[0];
-                restaurantname.Value = row["username"].ToString();
+                restaurantname.Text = row["username"].ToString();
                 city.Value = row["city"].ToString();
                 state.Value = row["state"].ToString();
                 address.Value = row["address"].ToString();
                 weburl.Value = row["websiteurl"].ToString();
-                email.Value = row["email"].ToString();
+                email.Text = row["email"].ToString();
                 resId = Convert.ToInt32(row["id"]);
             }
         }
 
         protected void restaurantProfile_Click(object sender, EventArgs e)
-        {
-            Response.Write("<script>alert('" + restaurantname.Value + "')</script>");
-            string sql = "UPDATE [frenchies] set username = '" + restaurantname.Value + "', email = '" + email.Value + "', address = '" + address.Value + "', city = '" + city.Value + "', state = '" + state.Value + "',websiteurl = '" + weburl.Value + "' WHERE id = " + resId;
+        {            
+            string sql = "UPDATE [frenchies] SET username = '" + restaurantname.Text + "', email = '" + email.Text + "', address = '" + address.Value + "', city = '" + city.Value + "', state = '" + state.Value + "',websiteurl = '" + weburl.Value + "' WHERE id = " + resId;
             int affectedRows = Sevices.execute(sql, connection);
             if (affectedRows > 0)
             {

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using yummy.Comman;
+
 using System.Data;
 using System.Reflection.Emit;
 using System.Configuration;
@@ -68,7 +69,7 @@ namespace yummy
                 {
                     string id = e.CommandArgument.ToString();
                     GetDataById(id);
-                    ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#exampleModal').modal('show');", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#showOrderModel').modal('show');", true);
                 }
                 else
                 {
@@ -82,12 +83,14 @@ namespace yummy
         {
             string sql = "SELECT " +
              "frenchies.username AS FrenchieUsername, " +
+             "frenchies.id AS FrenchieId, " +
              "frenchies.address AS FrenchieAddress, " +
              "frenchies.city AS FrenchieCity, " +
              "frenchies.state AS FrenchieState, " +
              "categorys.categoryname AS CategoryName, " +
              "products.productname AS ProductName, " +
              "products.price AS ProductPrice, " +
+             "products.qty AS ProductQty, " +
              "products.image AS ProductImage " +
              "FROM [frenchies] " +
              "INNER JOIN [categorys] ON frenchies.id = categorys.restaurantId " +
@@ -98,14 +101,54 @@ namespace yummy
 
             if (data.Rows.Count > 0)
             {
-                DataRow row = data.Rows[0];                
+                DataRow row = data.Rows[0];
                 restaurantname.Text = row["FrenchieUsername"].ToString();
-                city.Text = row["FrenchieCity"].ToString();                
+                city.Text = row["FrenchieCity"].ToString();
                 state.Text = row["FrenchieState"].ToString();
                 categoryname.Text = row["CategoryName"].ToString();
                 productname.Text = row["ProductName"].ToString();
-                price.Text = row["ProductPrice"].ToString();                               
+                price.Text = row["ProductPrice"].ToString();
+                qty.Text = row["ProductQty"].ToString();
+                int totalPrice = Convert.ToInt32(row["ProductQty"]) * Convert.ToInt32(row["ProductPrice"]);
+                totalprice.Text = totalPrice.ToString();
+                resid.Text = row["FrenchieId"].ToString();
             }
+        }
+
+        protected void placeOrder_Click(object sender, EventArgs e)
+        {
+            int totalPrice = Convert.ToInt32(qty.Text) * Convert.ToInt32(price.Text);
+            totalprice.Text = totalPrice.ToString();
+
+            string userId = Session["id"].ToString();            // Assuming userId is a string type
+            int resId = Convert.ToInt32(resid.Text);
+            string productName = productname.Text; // Assuming productname is a string type
+            string quantity = qty.Text; // Assuming qty is a string type
+            string productPrice = price.Text; // Assuming price is a string type
+            string userAddress = useraddress.Text; // You need to define userAddress, as it's not clear from the provided code
+
+            string sql = "INSERT INTO [orders] (userId, productname, quantity, productprice, totalprice, status, resId, useraddress) VALUES (" + Convert.ToInt32(userId) + ", '" + productName + "', " + Convert.ToInt32(quantity) + ", " + Convert.ToInt32(productPrice) + ", " + Convert.ToInt32(totalPrice) + ", 'Pending', " + resId + ", '" + userAddress + "')";
+
+            int response = Sevices.execute(sql, connection);
+
+            if (response == 1)
+            {
+                if (Sevices.SendEmail("pjay41907@gmail.com", "Jay"))
+                {
+                    Response.Write("<script>alert('mail ok!')</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Something goes wrong for mail!')</script>");
+                }
+                //ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#showOrderSuccessModel').modal('show');", true);
+                //Response.Redirect("/index.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Something goes wrong!')</script>");
+            }
+
         }
     }
 }

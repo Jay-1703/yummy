@@ -93,7 +93,7 @@ namespace yummy.admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText restaurantname;
+        protected global::System.Web.UI.WebControls.TextBox restaurantname;
 
         /// <summary>
         /// email control.
@@ -102,7 +102,7 @@ namespace yummy.admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// address control.
@@ -139,15 +139,6 @@ namespace yummy.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText weburl;
-
-        /// <summary>
-        /// Text1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
 
         /// <summary>
         /// restaurantProfile control.

@@ -9,20 +9,21 @@
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         <div
-            class="overflow-hidden radial-gradient">
-            <div class="w-100">
+            class="overflow-hidden my-9 radial-gradient">
+            <div class="w-100 my-9">
                 <div class="w-100  px-5 py-3">
                     <div class="col-12">
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="index.aspx" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="assets/images/logos/dark-logo.svg" width="180" alt="">
+                                    <%--<img src="assets/images/logos/dark-logo.svg" width="180" alt="">--%>
                                 </a>
-                                <p class="text-center">Add Your products</p>
+                                <h3 class="text-center my-4">Add Your products</h3>
+
                                 <div>
                                     <div class="row">
                                         <div class="mb-4 col-6">
-                                             <label for="exampleInputPassword1" class="form-label">Select category</label>
+                                            <label for="exampleInputPassword1" class="form-label">Select category</label>
                                             <asp:DropDownList ID="categoryList" runat="server" DataValueField="id" DataTextField="name" AutoPostBack="false" class="form-control"></asp:DropDownList>
                                         </div>
                                         <div class="mb-4 col-6">
@@ -47,7 +48,7 @@
                                     <div class="row">
                                         <div class="">
                                             <div class="w-25">
-                                                <asp:Button ID="addproduct" runat="server" Text="Submit" class="btn btn-primary w-100 text-white py-8 fs-4 mb-4 rounded-2" OnClick="addproduct_Click"/>
+                                                <asp:Button ID="addproduct" runat="server" Text="Submit" class="btn btn-primary w-100 text-white py-8 fs-4 mb-4 rounded-2" OnClick="addproduct_Click" />
                                             </div>
                                         </div>
                                     </div>

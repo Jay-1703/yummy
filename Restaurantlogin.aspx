@@ -22,7 +22,7 @@
                                         <div class="card mb-0">
                                             <div class="card-body">
                                                 <a class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                                    <img src="admin/assets/images/logos/dark-logo.svg" width="180" alt="">
+                                                    <%--<img src="admin/assets/images/logos/dark-logo.svg" width="180" alt="">--%>
                                                 </a>
                                                 <h1 class="text-center">Login to your restaurant</h1>
                                                 <div class="mt-5 d-flex justify-content-center">

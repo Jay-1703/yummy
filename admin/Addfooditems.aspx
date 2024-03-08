@@ -15,7 +15,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="index.aspx" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="assets/images/logos/dark-logo.svg" width="180" alt="">
+                                    <%--<img src="assets/images/logos/dark-logo.svg" width="180" alt="">--%>
                                 </a>
                                 <h3 class="text-center my-4">Add Your category</h3>
                                 <div>

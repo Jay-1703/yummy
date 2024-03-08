@@ -22,7 +22,7 @@
                                         <div class="card mb-0">
                                             <div class="card-body">
                                                 <a class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                                    <img src="admin/assets/images/logos/dark-logo.svg" width="180" alt="">
+                                                    <%--<img src="admin/assets/images/logos/dark-logo.svg" width="180" alt="">--%>
                                                 </a>
                                                 <h1 class="text-center">Add Your Restaurant</h1>
                                                 <div class="mt-5">
@@ -63,7 +63,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="mb-4 col-md-3">
+                                                        <%--<div class="mb-4 col-md-3">
                                                             <label for="opentime" class="form-label">Open time</label>
                                                             <div class="input-group">
                                                                 <asp:TextBox ID="opentime" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
@@ -74,7 +74,7 @@
                                                             <div class="input-group">
                                                                 <asp:TextBox ID="closetime" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
                                                             </div>
-                                                        </div>
+                                                        </div>--%>
                                                     </div>
 
                                                     <div>

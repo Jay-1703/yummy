@@ -96,24 +96,6 @@ namespace yummy
         protected global::System.Web.UI.WebControls.TextBox state;
 
         /// <summary>
-        /// opentime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox opentime;
-
-        /// <summary>
-        /// closetime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox closetime;
-
-        /// <summary>
         /// addRestaurant control.
         /// </summary>
         /// <remarks>

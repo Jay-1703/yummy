@@ -16,7 +16,10 @@ namespace yummy.admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            display_ordersdata();
+            if (!IsPostBack)
+            {
+                display_ordersdata();
+            }
         }
 
         protected void display_ordersdata()
@@ -31,16 +34,54 @@ namespace yummy.admin
                 {
                     ordersRepeater.DataSource = dt;
                     ordersRepeater.DataBind();
-                }
-                else
-                {
-                    Response.Write("<script>alert('you don't have an orders')</script>");
-                }
+                }          
 
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
+            }
+        }
+        private void GetDataOrderById(string Id)
+        {
+            int OrderId = Convert.ToInt32(Id);
+            string sql = "SELECT * FROM [orders] WHERE id = " + OrderId;
+            DataTable data = Sevices.select(sql, connection);
+            if (data.Rows.Count > 0)
+            {
+                DataRow row = data.Rows[0];
+                orderid.Text = row["id"].ToString();
+                productname.Text = row["productname"].ToString();
+                productprice.Text = row["productprice"].ToString();
+                quantity.Text = row["quantity"].ToString();
+                totalprice.Text = row["totalprice"].ToString();
+                orderid.Text = row["id"].ToString();
+                status.Items.FindByValue(row["status"].ToString()).Selected = true;              
+            }
+        }
+
+        protected void ordersRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "ShowEditOrderModal")
+            {
+                string id = e.CommandArgument.ToString();
+                GetDataOrderById(id);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#updateOrderModal').modal('show');", true);
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(orderid.Text);
+            string value = status.SelectedValue;
+
+            string sql = "UPDATE orders set status = '" + value + "' WHERE id = " + id;
+            int affectedRows = Sevices.execute(sql, connection);
+            if (affectedRows > 0)
+            {
+                Response.Redirect("dashboard.aspx");
+                UpdatePanel1.Update();
+                ordersRepeater.DataBind();
             }
         }
     }

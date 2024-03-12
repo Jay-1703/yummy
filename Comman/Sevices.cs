@@ -74,8 +74,7 @@ namespace yummy.Comman
                     ";
 
 
-            htmlTemplate = htmlTemplate.Replace("{Name}", Name)
-                            .Replace("{Status}", Status);
+            htmlTemplate = htmlTemplate.Replace("{Name}", Name)                            ;
 
             mail.Subject = "Catering Request";
             mail.Body = htmlTemplate;
@@ -99,5 +98,4 @@ namespace yummy.Comman
         }
 
     }
-}
 }

@@ -40,7 +40,7 @@ namespace yummy.admin
         {
             int restauranId = Convert.ToInt32(Session["restauranId"]);
             try
-            {               
+            {
                 string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId + "";
                 DataTable dt = Sevices.select(sql, connection);
 
@@ -118,9 +118,9 @@ namespace yummy.admin
                 }
             }
             if (e.CommandName == "ShowEditProductsModal")
-            {             
+            {
                 string id = e.CommandArgument.ToString();
-                GetDataProductsById(id);            
+                GetDataProductsById(id);
                 ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#updateProductsModal').modal('show');", true);
             }
         }
@@ -169,6 +169,18 @@ namespace yummy.admin
                     Response.Redirect("dashboard.aspx");
                 }
             }
+            if (e.CommandName == "ApproveRestaurant")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                String sql = "UPDATE frenchies set is_active = " + 1 + " WHERE id = " + id + "";
+                int affectedRows = Sevices.execute(sql, connection);
+                if (affectedRows > 0)
+                {
+                    Response.Redirect("dashboard.aspx");
+                    UpdatePanel3.Update();
+                    restaurantData.DataBind();
+                }
+            }
 
         }
 
@@ -183,10 +195,10 @@ namespace yummy.admin
             productprice.Text = productRow["price"].ToString();
             quantity.Text = productRow["qty"].ToString();
             productid.Text = productRow["id"].ToString();
-            
+
             string sql = "SELECT * FROM [categorys] WHERE restaurantId = " + restauranId;
             DataTable data = Sevices.select(sql, connection);
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 categoryList.DataSource = data;
                 categoryList.DataValueField = "id";
@@ -202,12 +214,12 @@ namespace yummy.admin
         }
 
         private void GetDataCategoryById(string Id)
-        {            
+        {
             string sql = "SELECT * from categorys WHERE id = " + Id;
             DataTable dt = Sevices.select(sql, connection);
             DataRow categoryRow = dt.Rows[0];
-            categoryname.Text = categoryRow["categoryname"].ToString();            
-            categoryid.Text = categoryRow["id"].ToString();           
+            categoryname.Text = categoryRow["categoryname"].ToString();
+            categoryid.Text = categoryRow["id"].ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)

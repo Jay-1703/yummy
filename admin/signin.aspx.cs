@@ -13,11 +13,7 @@ namespace yummy.admin
 {
     public partial class signin : System.Web.UI.Page
     {
-        SqlConnection connection = new SqlConnection("Data Source=PATEL\\SQLEXPRESS;Initial Catalog=yummy;Integrated Security=True");
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
+        SqlConnection connection = new SqlConnection("Data Source=PATEL\\SQLEXPRESS;Initial Catalog=yummy;Integrated Security=True");        
 
         protected void loginBtn_Click1(object sender, EventArgs e)
         {

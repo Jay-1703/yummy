@@ -23,7 +23,7 @@ namespace yummy
         {
             connection.Open();
             int primaryKey;
-            string sql = "INSERT INTO [frenchies] (username,email,password,address,city,state,websiteurl,role) values('" + restaurantname.Text + "','" + email.Text + "','" + password.Text + "','" + address.Text + "','" + city.Text + "','" + state.Text + "','" + weburl.Text + "', " + 6 + ")";
+            string sql = "INSERT INTO [frenchies] (username,email,password,address,city,state,websiteurl,role,is_active) values('" + restaurantname.Text + "','" + email.Text + "','" + password.Text + "','" + address.Text + "','" + city.Text + "','" + state.Text + "','" + weburl.Text + "', " + 6 + "," + 0 + ")";
             SqlCommand cmd = new SqlCommand(sql, connection);
             cmd.ExecuteNonQuery();
 
@@ -52,10 +52,11 @@ namespace yummy
                 {
                     Session["role"] = roleName;
                     Session["restaurantName"] = restaurantname.Text;
-                    Session["email"] = email.Text;                    
+                    Session["email"] = email.Text;
 
 
-                    Response.Redirect("admin/dashboard.aspx");
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showModal", "$('#messageModel').modal('show');", true);
+                    Response.Redirect("/index.aspx");
                 }
                 else
                 {

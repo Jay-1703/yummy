@@ -24,39 +24,46 @@ namespace yummy
                 SqlDataAdapter data = new SqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
                 data.Fill(dataTable);
-               
+
                 if (dataTable.Rows.Count >= 0)
                 {
                     DataRow row = dataTable.Rows[0];
                     int id = Convert.ToInt32(row["role"]);
-
-                    string role = "SELECT * FROM [roles] WHERE id = " + id;
-                    SqlCommand command2 = new SqlCommand(role, connection);
-                    SqlDataAdapter da = new SqlDataAdapter(command2);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
+                    int active = Convert.ToInt32(row["is_active"]);
+                    if (active != 0)
                     {
-                        DataRow row2 = dt.Rows[0];
-                        int id2 = Convert.ToInt32(row2["id"]);
-                        if (id2 == id)
+                        string role = "SELECT * FROM [roles] WHERE id = " + id;
+                        SqlCommand command2 = new SqlCommand(role, connection);
+                        SqlDataAdapter da = new SqlDataAdapter(command2);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
                         {
-                            string roleName = (string)row2["rolename"];
-                            if (roleName != null)
+                            DataRow row2 = dt.Rows[0];
+                            int id2 = Convert.ToInt32(row2["id"]);
+                            if (id2 == id)
                             {
-                                Session["role"] = roleName;
-                                Session["restaurantName"] = (string)(row["username"]);
-                                Session["email"] = (string)row["email"];
-                                Session["restauranId"] = (int)row["id"];
-                                Response.Redirect("admin/dashboard.aspx");
+                                string roleName = (string)row2["rolename"];
+                                if (roleName != null)
+                                {
+                                    Session["role"] = roleName;
+                                    Session["restaurantName"] = (string)(row["username"]);
+                                    Session["email"] = (string)row["email"];
+                                    Session["restauranId"] = (int)row["id"];
+                                    Response.Redirect("admin/dashboard.aspx");
+                                }
+                            }
+                            else
+                            {
+                                Response.Write("Role not found for the specified ID.");
                             }
                         }
-                        else
-                        {
-                            Response.Write("Role not found for the specified ID.");
-                        }
 
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Your yummy account will be activated soon....')</script>");
                     }
 
                 }

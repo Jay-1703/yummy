@@ -26,11 +26,7 @@
                                                 </a>
                                                 <h1 class="text-center">Login to your restaurant</h1>
                                                 <div class="mt-5 d-flex justify-content-center">
-                                                    <div class="w-25">
-                                                        <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Restaurant/Cafe name</label>
-                                                            <asp:TextBox ID="restaurantname" runat="server" class="form-control"></asp:TextBox>
-                                                        </div>
+                                                    <div class="w-25">                                                        
                                                         <div class="mb-4">
                                                             <label for="exampleInputPassword1" class="form-label">Email</label>
                                                             <asp:TextBox ID="email" runat="server" class="form-control"></asp:TextBox>

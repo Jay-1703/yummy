@@ -9,6 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div style="position: relative;">
             <div style="background-image: url('assets/img/fooditems/bg/bg-4.jpg'); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; top: 0; right: 0; bottom: 0; left: 0; opacity: 0.2;"></div>
             <div>
@@ -79,7 +80,7 @@
 
                                                     <div>
                                                         <div class="w-25">
-                                                            <asp:Button ID="addRestaurant" runat="server" Text="Submit" class="btn btn-primary w-100 text-white py-8 fs-4 mb-4 rounded-2" OnClick="addRestaurant_Click" />
+                                                            <asp:Button data-bs-toggle="modal" data-bs-target="#messageModel" ID="addRestaurant" runat="server" Text="Submit" class="btn btn-primary w-100 text-white py-8 fs-4 mb-4 rounded-2" OnClick="addRestaurant_Click" />
                                                         </div>
                                                     </div>
 
@@ -92,6 +93,25 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </div>
+
+        <div class="modal fade" id="messageModel" tabindex="-1" aria-labelledby="messageModelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageModelLabel">Register Success</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Your restaurant has been registered successfully!</h3>
+                        <h4>Your yummy account will be activated soon....</h4>
+                        <h4>Thank you for register....</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>

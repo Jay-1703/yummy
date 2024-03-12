@@ -48,10 +48,7 @@ namespace yummy
                     orders.DataSource = dt;
                     orders.DataBind();
                 }
-                else
-                {
-                    Response.Write("<script>alert('you don't have an orders')</script>");
-                }
+                
 
             }
             catch (Exception ex)

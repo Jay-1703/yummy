@@ -62,7 +62,7 @@
                                 <h3 class="modal-title">Update categories</h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">                                                              
+                            <div class="modal-body">
                                 <div class="row">
                                     <div class="mb-4 col-6">
                                         <label for="exampleInputPassword1" class="form-label">Category name</label>
@@ -170,7 +170,7 @@
                                 <h3 class="modal-title">Update products</h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">                                
+                            <div class="modal-body">
                                 <div class="row">
                                     <div class="mb-4 col-6">
                                         <label for="exampleInputPassword1" class="form-label">Select category</label>
@@ -210,83 +210,97 @@
             </ContentTemplate>
         </asp:UpdatePanel>
 
-
-        <%-- Show restaurant --%>
-        <asp:Repeater ID="restaurantData" runat="server" OnItemCommand="restaurantData_ItemCommand">
-            <HeaderTemplate>
-                <table id="datatablesSimple" class="table text-nowrap mt-4 mb-5 align-middle shadow-sm border border-2">
-                    <thead class="text-dark fs-4">
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+                <asp:Repeater ID="restaurantData" runat="server" OnItemCommand="restaurantData_ItemCommand">
+                    <HeaderTemplate>
+                        <table id="datatablesSimple" class="table text-nowrap mt-4 mb-5 align-middle shadow-sm border border-2">
+                            <thead class="text-dark fs-4">
+                                <tr class="border border-bottom-2">
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Restaurant name</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Email</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Address</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">City</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">State</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Websiteurl</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Active status</h6>
+                                    </th>
+                                    <th class="border-bottom-0" colspan="2">
+                                        <h6 class="fw-semibold mb-0 text-center">Actions</h6>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    </HeaderTemplate>
+                    <ItemTemplate>
                         <tr class="border border-bottom-2">
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Restaurant name</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Email</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Address</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">City</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">State</h6>
-                            </th>
-                            <th class="border-bottom-0">
-                                <h6 class="fw-semibold mb-0">Websiteurl</h6>
-                            </th>
-                            <th class="border-bottom-0" colspan="2">
-                                <h6 class="fw-semibold mb-0 text-center">Actions</h6>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            </HeaderTemplate>
-            <ItemTemplate>
-                <tr class="border border-bottom-2">
 
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("username") %>
-                        </h6>
-                    </td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("email") %>
-                        </h6>
-                    </td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("address") %>
-                        </h6>
-                    </td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("city") %>
-                        </h6>
-                    </td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("state") %>
-                        </h6>
-                    </td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0">
-                            <%# Eval("websiteurl") %>
-                        </h6>
-                    </td>
-                    <%--<td class="border-bottom-0">
-                        <asp:Button ID="Edit" runat="server" Text="Edit" CssClass="btn btn-primary" CommandName="GetRecord" CommandArgument='<%# Eval("id") %>' />
-                    </td>--%>
-                    <td class="border-bottom-0">
-                        <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="btn btn-danger" CommandName="DeleteRestaurantRecord" CommandArgument='<%# Eval("id") %>' />
-                    </td>
-                </tr>
-            </ItemTemplate>
-            <FooterTemplate>
-                </tbody>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("username") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("email") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <p class="fw-semibold mb-0">
+                                    <%# Eval("address") %>
+                                </p>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("city") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("state") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("websiteurl") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">
+                                    <%# Eval("is_active") %>
+                                </h6>
+                            </td>
+                            <td class="border-bottom-0">
+                                <asp:Button ID="Edit" runat="server" Text="Approve" CssClass="btn btn-primary" CommandName="ApproveRestaurant" CommandArgument='<%# Eval("id") %>' Visible='<%# !Convert.ToBoolean(Eval("is_active")) %>' />
+                            </td>
+                            <td class="border-bottom-0">
+                                <asp:Button ID="Reject" runat="server" Text="Reject" CssClass="btn btn-danger" CommandName="DeleteRestaurantRecord" CommandArgument='<%# Eval("id") %>' Visible='<%# !Convert.ToBoolean(Eval("is_active")) %>' />
+                            </td>
+                            <td class="border-bottom-0">
+                                <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="btn btn-danger" CommandName="DeleteRestaurantRecord" CommandArgument='<%# Eval("id") %>' Visible='<%# Convert.ToBoolean(Eval("is_active")) %>' />
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </tbody>
             </table>             
-            </FooterTemplate>
-        </asp:Repeater>
+                    </FooterTemplate>
+                </asp:Repeater>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <%-- Show restaurant --%>
     </div>
 </asp:Content>
